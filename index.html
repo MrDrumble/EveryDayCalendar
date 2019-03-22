@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Larc</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" sizes="192x192" href="icon.png">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul class="rainbow" v-for="month in months" :key="month.num">
+            <li>{{ month.name }}</li>
+            <li v-for="day in month.days" 
+                v-bind:class="{ active: getDone(month.num,day-1) }" 
+                v-on:click="setDone(month.num,day-1)">{{ day }}</li>
+        </ul>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
